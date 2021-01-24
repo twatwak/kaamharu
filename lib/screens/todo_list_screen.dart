@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../helpers/database_helper.dart';
 import '../models/task_model.dart';
 import '../screens/add_task_screen.dart';
+import '../utils/utils.dart';
 
 class TodoListScreeen extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class TodoListScreeen extends StatefulWidget {
 class _TodoListScreeenState extends State<TodoListScreeen> {
   Future<List<Task>> _taskList;
   final DateFormat _dateFormat = DateFormat('MMM dd,yyyy');
+  final String _welmsg = Utils.getWelcomeMessage();
 
   @override
   void initState() {
@@ -142,9 +144,9 @@ class _TodoListScreeenState extends State<TodoListScreeen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello, Bikey',
+                          _welmsg,
                           style: TextStyle(
-                              fontSize: 40,
+                              fontSize: 30,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                         ),

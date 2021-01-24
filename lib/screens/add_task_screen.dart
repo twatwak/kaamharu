@@ -41,8 +41,6 @@ class _AddTaskSreenState extends State<AddTaskSreen> {
   _submit() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-
-      //insert the task to our user's database
       Task task = Task(
         title: _title,
         desc: _desc,
@@ -101,11 +99,13 @@ class _AddTaskSreenState extends State<AddTaskSreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                  child: Text(widget.task == null ? 'Add Task' : 'Update Task',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold)),
+                  child: Text(
+                    widget.task == null ? 'Add Task' : 'Update Task',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
                   height: 10,
@@ -175,7 +175,7 @@ class _AddTaskSreenState extends State<AddTaskSreen> {
                         height: 50,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).accentColor,
                             borderRadius: BorderRadius.circular(30)),
                         child: FlatButton(
                           onPressed: _submit,
@@ -195,7 +195,7 @@ class _AddTaskSreenState extends State<AddTaskSreen> {
                               height: 50,
                               width: double.infinity,
                               decoration: BoxDecoration(
-                                  color: Theme.of(context).primaryColor,
+                                  color: Colors.red,
                                   borderRadius: BorderRadius.circular(30)),
                               child: FlatButton(
                                 onPressed: _delete,
